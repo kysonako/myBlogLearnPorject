@@ -14,11 +14,11 @@ class Follow extends Model
         'followed_user_id',
         'following_user_id',
     ];
-    public function followed()
+    public function followed(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class, 'followed_user_id','id');
     }
-    public function follower()
+    public function follower(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class, 'following_user_id', 'id');
     }
