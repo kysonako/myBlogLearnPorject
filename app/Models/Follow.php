@@ -9,4 +9,20 @@ class Follow extends Model
 {
     /** @use HasFactory<\Database\Factories\FollowFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'followed_user_id',
+        'following_user_id',
+    ];
+    public function followed()
+    {
+        return $this->belongsTo(User::class, 'followed_user_id','id');
+    }
+    public function follower()
+    {
+        return $this->belongsTo(User::class, 'following_user_id', 'id');
+    }
+
+
+
 }
