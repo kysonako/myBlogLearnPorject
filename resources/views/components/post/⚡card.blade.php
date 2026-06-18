@@ -25,7 +25,7 @@ new class extends Component
 
         <div>
             <button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded ">
+                class="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 border border-green-600 rounded ">
                 Жмай сюда
             </button>
         </div>
