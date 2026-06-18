@@ -17,7 +17,10 @@ class Like extends Model
             'post_id'
         ];
 
-
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
     public function post() :BelongsTo
     {
         return $this->belongsTo(Post::class);

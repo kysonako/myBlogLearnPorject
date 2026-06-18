@@ -14,6 +14,12 @@ class Follow extends Model
         'followed_user_id',
         'following_user_id',
     ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     public function followed(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class, 'followed_user_id','id');

@@ -16,6 +16,12 @@ class Comment extends Model
           'user_id',
           'post_id',
         ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     //Relation
     public function author(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
