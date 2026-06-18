@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', function () {
-    return view('mainPage');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//})->name('home');
+
+
+Route::livewire('/', 'pages::main.test');
+
+
+

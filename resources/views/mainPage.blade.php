@@ -1,3 +1,5 @@
+
+
 <div>
-    The current time is {{time()}}
+    This is main page
 </div>
