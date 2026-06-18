@@ -4,7 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\User;
+use App\Models\Post;
 /**
  * @extends Factory<Comment>
  */
@@ -19,6 +20,9 @@ class CommentFactory extends Factory
     {
         return [
             //
+            'body' => fake()->sentence(40),
+            'user_id' => fake()->randomElement(User::pluck('id')->toArray()),
+            'post_id' => fake()->randomElement(Post::pluck('id')->toArray()),
         ];
     }
 }
