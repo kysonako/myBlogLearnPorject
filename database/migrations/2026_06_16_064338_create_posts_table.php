@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('picture')->nullable();
             $table->text('body')->nullable();
             $table->foreignIdFor(User::class,'author_id');
-            $table->string('status');
+            $table->string('status'); //draft or published
             $table->timestamps();
 
 
