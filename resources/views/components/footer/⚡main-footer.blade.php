@@ -8,7 +8,7 @@ new class extends Component
 };
 ?>
 
-<footer class="bg-gray-800 text-white p-4 mt-8 ">
+<footer class="bg-gray-800 text-white p-4">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-green-700">
         <p class="text-sm">
             &copy; {{ date('Y') }} Мой блог. Все права защищены.

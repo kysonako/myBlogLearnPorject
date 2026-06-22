@@ -15,9 +15,10 @@ new class extends Component {
         Мой блог
     </h1>
         <nav class="space-x-2">
-            <a href="/" wire:navigate class="text-green-700 hover:text-green-200">Главная</a>
+            <a href="/" wire:navigate class="text-green-700 hover:text-green-200">Блог</a>
             <a href="/about" wire:navigate class="text-green-700 hover:text-green-200">О нас</a>
-            <a href="/blog" wire:navigate class="text-green-700 hover:text-green-200">Блог</a>
+            <a href="/profile" wire:navigate class="text-green-700 hover:text-green-200">Профиль</a>
         </nav>
     </div>
+
 </header>

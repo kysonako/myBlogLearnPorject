@@ -25,7 +25,7 @@ class Comment extends Model
     //Relation
     public function author(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return  $this->belongsTo(User::class);
+        return  $this->belongsTo(User::class,'user_id','id');
     }
 
     public function post(): \Illuminate\Database\Eloquent\Relations\BelongsTo
