@@ -55,6 +55,8 @@ new class extends Component
             ->where('user_id', auth()->id())
             ->exists();
     }
+
+
 };
 ?>
 
@@ -97,6 +99,7 @@ new class extends Component
         <div class="flex gap-4 text-sm text-gray-600">
         </div>
     </div>
+    <livewire:post.add-commment :post-id="$postId"></livewire:post.add-commment>
     <livewire:post.comments :post-id="$postId"></livewire:post.comments>
 </div>
 

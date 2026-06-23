@@ -2,25 +2,34 @@
 
 use Livewire\Component;
 use App\Models\Comment;
+use Livewire\Attributes\On;
 use Livewire\WithPagination;
 
 new class extends Component
 {
     //
     public $postId;
-
+    public $comments;
 
     public function mount($postId = null)
     {
         $this->postId = $postId;
+        $this->loadComments(); // ← загружаем при монтировании
     }
     public function render()
     {
-
-        $postComments = Comment::where('post_id','=',$this->postId)->with('author')->get();
-        return view('components.post.⚡comments',[
-            'comments' => $postComments
+        return view('components.post.⚡comments', [
+            'comments' => $this->comments,
         ]);
+    }
+
+    #[On('comment-added')]
+    public function loadComments()
+    {
+        $this->comments = Comment::where('post_id', $this->postId)
+            ->with('author')
+            ->orderBy('created_at', 'desc') // чтобы новые были сверху
+            ->get();
     }
 };
 ?>
