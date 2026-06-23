@@ -4,6 +4,7 @@ use Livewire\Component;
 use Livewire\Attributes\Computed;
 use App\Models\Post;
 use Livewire\WithPagination;
+use App\Models\Like;
 
 new class extends Component
 {
@@ -14,7 +15,8 @@ new class extends Component
 
     public function render()
     {
-       $posts = Post::with('author','likes')->orderBy('posts.created_at')->paginate(10);
+       $posts = Post::with('author')->withCount('likes')->orderBy('posts.created_at')->paginate(10);
+
 
        return view('components.post.⚡card',
        [
@@ -23,6 +25,13 @@ new class extends Component
        );
 
     }
+    public function isLikedByUser($postId): bool
+    {
+        return Like::where('post_id', $postId)
+            ->where('user_id', auth()->id())
+            ->exists();
+    }
+
 
 };
 ?>
@@ -40,11 +49,21 @@ new class extends Component
             </div>
 
 
-            <div>
+            <div class="flex justify-between" >
                 <button wire:navigate href="/post/{{$post->id}}"
                     class="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 border border-green-600 rounded ">
                     Подробнее
                 </button>
+                <div class="flex">
+
+                    @if($this->isLikedByUser($post->id))
+                        <x-heroicon-s-heart class="w-6 h-6 text-red-500" />
+                    @else
+                        <x-heroicon-o-heart class="w-6 h-6 text-red-500" />
+                    @endif
+
+                    {{$post->likes_count}}
+                </div>
             </div>
 
         </div>
